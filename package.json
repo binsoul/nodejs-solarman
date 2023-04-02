@@ -1,0 +1,59 @@
+{
+    "name": "@binsoul/nodejs-solarman",
+    "version": "0.0.1",
+    "description": "Solarman protocol implementation",
+    "keywords": [
+        "node-red"
+    ],
+    "author": {
+        "name": "Sebastian Mößler",
+        "email": "s.moeszler@binsoul.de"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/binsoul/nodejs-solarman/issues"
+    },
+    "homepage": "https://github.com/binsoul/nodejs-solarman",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/binsoul/nodejs-solarman.git"
+    },
+    "scripts": {
+        "copy": "copyfiles -u 1 ./src/**/*.d.ts ./dist/",
+        "build": "rimraf dist && npm run copy && tsc -p tsconfig.json",
+        "watch": "rimraf dist && npm run copy && tsc -p tsconfig.watch.json --watch --preserveWatchOutput",
+        "test": "jest --forceExit --detectOpenHandles --colors",
+        "test:watch": "jest --forceExit --detectOpenHandles --watchAll",
+        "fix-style": "prettier --ignore-path .eslintignore --write \"**/*.{js,ts,md}\" && eslint --ext .js,.ts . --fix"
+    },
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": "./dist/index.js",
+        "./*": "./dist/*",
+        "./dist/*": null
+    },
+    "files": [
+        "dist/*",
+        "package.json",
+        "README.md",
+        "LICENSE.md"
+    ],
+    "devDependencies": {
+        "@tsconfig/node14": "^1.0.3",
+        "@types/node": "^18.11.18",
+        "@typescript-eslint/eslint-plugin": "^5.49.0",
+        "@typescript-eslint/parser": "^5.49.0",
+        "copyfiles": "^2.4.1",
+        "eslint": "^8.32.0",
+        "eslint-config-prettier": "^8.6.0",
+        "prettier": "^2.8.3",
+        "prettier-plugin-organize-imports": "^3.2.2",
+        "rimraf": "^4.1.2",
+        "tslib": "^2.5.0",
+        "typescript": "^4.9.4"
+    },
+    "engines": {
+        "node": ">=14.0.0"
+    }
+}
