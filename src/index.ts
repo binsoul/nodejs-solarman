@@ -1,1 +1,1 @@
-export { SolarmanV5 } from './SolarmanV5';
+export { SolarmanV5 } from './SolarmanV5.js';
